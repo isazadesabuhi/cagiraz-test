@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Handle color */
+::-webkit-scrollbar-thumb {
+  background: #888; /* handle color */
+  border-radius: 6px;
+}
+
+
+/* Optional: the below style will remove the scrollbar track color */
+::-webkit-scrollbar-track {
+  background: transparent; /* making scrollbar track transparent */
+}
+
+
+/*carousel*/
+.slide-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.slide-enter-active {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: opacity 1000ms, transform 1000ms;
+}
+
+.slide-exit {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.slide-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 200ms, transform 2500ms;
+}
+
+/* h1 default classes*/
+
+/* h1 default classes*/
+.my-h1 {
+  @apply font-semibold lg:font-bold text-[28px] sm:text-[34px] md:text-[40px] lg:text-[36px] xl:lg:text-[48px] 2xl:lg:text-[60px] 
+  leading-[38px] sm:leading-[45px] md:leading-[52px] lg:leading-[60px] xl:lg:leading-[67px] 2xl:lg:leading-[74px];
+}
+
+/* h2 default classes*/
+.my-h2 {
+  @apply font-semibold lg:font-bold text-[20px] sm:text-[20px] md:text-[24px] lg:text-[28px] xl:text-[32px] 2xl:text-[36px] leading-[24px] sm:leading-[30px] md:leading-[36px] lg:leading-[42px] xl:leading-[48px] 2xl:leading-[54px] text-black500;
+}
+
+/* h2 default classes*/
+.my-h4 {
+  @apply font-semibold lg:font-bold text-[16px] lg:text-[24px] leading-[24px] lg:leading-[42px] text-black500;
+}
+
+/* h5 default classes*/
+.my-h5 {
+  @apply font-semibold lg:font-bold text-[12px] sm:text-[14px] md:text-[18px] lg:text-[20px] leading-[18px] sm:leading-[22px] md:leading-[26px] lg:leading-[30px];
+}
+
+/* loading stle */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 31.86px;
+  height: 31.86px;
+  border-radius: 50%;
+  border-left-color: #3598ea;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.moving-div {
+  animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20%,
+  60% {
+    transform: translateX(-5px);
+  }
+
+  40%,
+  80% {
+    transform: translateX(5px);
+  }
+}

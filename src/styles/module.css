@@ -1,0 +1,27 @@
+/* Rotate animation */
+@keyframes rotate {
+  to {
+    transform: rotate(-45deg);
+  }
+}
+
+/* Slide animation */
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Transition */
+.transform {
+  transition: transform 300ms;
+}
