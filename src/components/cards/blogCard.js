@@ -3,28 +3,26 @@ import Image from "next/image";
 import Link from "next/link";
 import views from "@/src/icons/bloq/views.svg";
 
-function BlogCard({
-  categoryName,
-  id,
-  imageUrl,
-  shortDescription,
-  title,
-  titleUrl,
-  viewCount,
-  insertDate,
-}) {
-  return (
+function BlogCard({categoryName,
+    id,
+    imageUrl,
+    shortDescription,
+    title,
+    titleUrl,
+    viewCount,
+    insertDate}){
+    return(
     <div className="drop-shadow-card lg:drop-shadow-none hover:drop-shadow-card transition duration-300 bg-white p-[15px] sm:p-[18px] md:p-[21px] lg:p-[24px] lx:p-[27px] 2xl:p-[30px] rounded-[20px] 2xl:rounded-[25px]">
       <Link href={`/blog/${titleUrl}/${id}`}>
         <Image
+          width={360}
+          height={257}
           src={`https://api.cagir.az${imageUrl}`}
           alt={title}
           title={title}
-          width={360} // Initial width
-          height={257} // Initial height
-          className="rounded-[10px] lg:rounded-[20px] w-full h-auto object-center"
+          className="rounded-[10px] lg:rounded-[20px] w-full aspect-[270/166] lg:aspect-[360/257] object-center"
           loading="lazy"
-          sizes="(max-width: 640px) 100vw, (max-width: 1020px) 50vw, 25vw"
+          sizes="(max-width: 1020px) 100vw, 25vw"
           unoptimized
         />
       </Link>
@@ -77,7 +75,7 @@ function BlogCard({
         </div>
       </div>
     </div>
-  );
+    )
 }
 
-export default BlogCard;
+export default BlogCard
