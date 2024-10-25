@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import views from "@/src/icons/bloq/views.svg";
-import PrimaryOutlineSmBtn from "@/src/components/buttons/primaryOutlineSmBtn";
 
 function BlogCard({categoryName,
     id,

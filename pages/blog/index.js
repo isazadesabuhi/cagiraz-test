@@ -8,7 +8,7 @@ import views from "@/src/icons/bloq/views.svg";
 import PrimaryOutlineSmBtn from "@/src/components/buttons/primaryOutlineSmBtn";
 import SearchInputMd from "@/src/components/input/inputSearchMd";
 import TabBar from "@/src/components/mobile/TabBar";
-import BlogCard from "@/src/components/cards/BlogCard"
+import BlogCard from "@/src/components/cards/blogCard"
 
 function Blogs({ initialData }) {
   const [size, setSize] = useState(0);
