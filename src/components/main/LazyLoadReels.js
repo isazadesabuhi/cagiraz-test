@@ -6,31 +6,31 @@ const Reels = dynamic(() => import("@/src/components/main/YoutubeVideos"), {
 });
 
 const LazyLoadReels = () => {
-  // const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
-  // const ref = useRef();
+  const ref = useRef();
 
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     ([entry]) => {
-  //       setIsVisible(entry.isIntersecting);
-  //       if (entry.isIntersecting) {
-  //         observer.disconnect();
-  //       }
-  //     },
-  //     { threshold: 0.2, passive: true } // Adjust the threshold as needed
-  //   );
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2, passive: true } // Adjust the threshold as needed
+    );
 
-  //   observer.observe(ref.current);
+    observer.observe(ref.current);
 
-  //   return () => {
-  //     observer.disconnect();
-  //   };
-  // }, []);
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <div id="target-element-2-lazy" style={{ minHeight: "500px" }}>
-      <div> <Reels /></div>
+      <div ref={ref}>{isVisible && <Reels />}</div>
     </div>
   );
 };
