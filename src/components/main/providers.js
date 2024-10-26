@@ -1,6 +1,5 @@
 import React from "react";
 import ReviewCard from "@/src/components/cards/reviewCard";
-import starSvg from "@/src/icons/deyerler/Star.svg"
 import dynamic from "next/dynamic";
 const AliceCarousel = dynamic(() => import("react-alice-carousel"), {
   ssr: false,

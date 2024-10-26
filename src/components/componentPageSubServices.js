@@ -4,7 +4,6 @@ import SubServicesforReklam from "@/src/components/services/subServicesforReklam
 import SubServices from "@/src/components/services/subServices";
 import axios from "axios";
 import Head from "next/head";
-// import LazyLoadReels from "@/src/components/main/LazyLoadReels";
 import Badge from "@/src/components/others/badge";
 import dynamic from "next/dynamic";
 import az from "@/src/data/az.json";
