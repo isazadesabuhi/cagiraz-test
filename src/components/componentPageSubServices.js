@@ -4,14 +4,13 @@ import SubServicesforReklam from "@/src/components/services/subServicesforReklam
 import SubServices from "@/src/components/services/subServices";
 import axios from "axios";
 import Head from "next/head";
-import LazyLoadReels from "@/src/components/main/LazyLoadReels";
+// import LazyLoadReels from "@/src/components/main/LazyLoadReels";
 import Badge from "@/src/components/others/badge";
 import dynamic from "next/dynamic";
 import az from "@/src/data/az.json";
 import ru from "@/src/data/ru.json";
 import en from "@/src/data/en.json";
 import { useRouter } from "next/router";
-
 
 const Providers = dynamic(() => import("@/src/components/main/providers"), {
   ssr: false,
@@ -21,6 +20,11 @@ const Executers = dynamic(() => import("@/src/components/main/executers"), {
   ssr: false,
 });
 
+const LazyLoadReels = dynamic(() => import("@/src/components/main/LazyLoadReels"), {
+  ssr: false,
+});
+
+
 const ServicePage = ({ mainServiceUrl, parentId, chosenLang }) => {
   const router = useRouter();
   const [mainServiceData, setMainServiceData] = useState(null);
@@ -28,7 +32,7 @@ const ServicePage = ({ mainServiceUrl, parentId, chosenLang }) => {
   const [providersData, setProvidersData] = useState([]);
   const [executersData, setExecutersData] = useState([]);
   // const chosenLang = "az";
-  const messages = chosenLang==="az" ? az : chosenLang==="ru" ? ru : en
+  const messages = chosenLang === "az" ? az : chosenLang === "ru" ? ru : en;
 
   // Fetching data using useEffect
   useEffect(() => {
@@ -69,7 +73,13 @@ const ServicePage = ({ mainServiceUrl, parentId, chosenLang }) => {
     pb-[60px] sm:pb-[75px] md:pb-[90px] lg:pb-[105px] xl:pb-[120px] 2xl:pb-[135px]
   `;
 
-  const advertiseRoutes = ["/master","/plumber","/combi","/climate","/clean"]
+  const advertiseRoutes = [
+    "/master",
+    "/plumber",
+    "/combi",
+    "/climate",
+    "/clean",
+  ];
 
   return (
     <div>
@@ -85,13 +95,16 @@ const ServicePage = ({ mainServiceUrl, parentId, chosenLang }) => {
       <div className="sticky top-[35px] lg:hidden z-50 py-[10px]">
         <TabBar {...{ messages }} />
       </div>
-      {advertiseRoutes.includes(router.route) ? 
-      <SubServicesforReklam
-      {...{ mainServiceData, subServices, chosenLang, messages }}
-    /> : <SubServices
-    {...{ mainServiceData, subServices, chosenLang, messages }}
-  /> }
-      
+      {advertiseRoutes.includes(router.route) ? (
+        <SubServicesforReklam
+          {...{ mainServiceData, subServices, chosenLang, messages }}
+        />
+      ) : (
+        <SubServices
+          {...{ mainServiceData, subServices, chosenLang, messages }}
+        />
+      )}
+
       <div className={containerClass}>
         <Providers {...{ parentId, chosenLang, messages, providersData }} />
         <Executers {...{ parentId, chosenLang, messages, executersData }} />
